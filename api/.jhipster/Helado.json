@@ -1,0 +1,61 @@
+{
+  "applications": "*",
+  "changelogDate": "20221123082422",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "helado",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "300",
+      "javadoc": "nombre"
+    },
+    {
+      "fieldName": "enOferta",
+      "fieldType": "Boolean",
+      "fieldValidateRules": ["required"],
+      "javadoc": "oferta"
+    },
+    {
+      "fieldName": "precioOferta",
+      "fieldType": "Double",
+      "javadoc": "precio oferta"
+    },
+    {
+      "fieldName": "precio",
+      "fieldType": "Double",
+      "fieldValidateRules": ["required"],
+      "javadoc": "precio"
+    },
+    {
+      "fieldName": "fechaCreacion",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"],
+      "javadoc": "fechaCreacion"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Entidad Helado.",
+  "jpaMetamodelFiltering": true,
+  "name": "Helado",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "fabricante",
+      "relationshipName": "fabricante",
+      "relationshipType": "many-to-one",
+      "relationshipValidateRules": "required"
+    },
+    {
+      "otherEntityName": "ingrediente",
+      "otherEntityRelationshipName": "helados",
+      "ownerSide": true,
+      "relationshipName": "ingredientes",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

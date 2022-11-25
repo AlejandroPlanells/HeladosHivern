@@ -1,0 +1,29 @@
+{
+  "jHipsterGApp": {
+    "fabricante": {
+      "home": {
+        "title": "Fabricantes",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Fabricante",
+        "createOrEditLabel": "Создать или отредактировать Fabricante",
+        "notFound": "Fabricantes не найдено"
+      },
+      "created": "Новый Fabricante создан с идентификатором {{ param }}",
+      "updated": "Fabricante обновлен с идентификатором {{ param }}",
+      "deleted": "Fabricante удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Fabricante {{ id }}?"
+      },
+      "detail": {
+        "title": "Fabricante"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "domicilio": "Domicilio",
+      "help": {
+        "nombre": "nombre",
+        "domicilio": "domicilio"
+      }
+    }
+  }
+}

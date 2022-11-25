@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  db:
+    container_name: postgres_db
+    image: postgres:15-alpine
+    restart: always
+    environment:
+      - POSTGRES_DB=JHipsterG
+      - POSTGRES_USER=JHipsterG
+      - POSTGRES_PASSWORD=1234
+    ports:
+      - 127.0.0.1:5433:5432
+    volumes:
+      - db:/var/lib/postgresql/data
+  
+  app:
+    container_name: generacionjh_app
+    image: jhipsterg
+    depends_on:
+      - db
+    environment:
+      - JHIPSTER_SLEEP=10
+      - SPRING_PROFILES_ACTIVE=prod
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/JHipsterG
+      - SPRING_DATASOURCE_PASSWORD=1234
+    ports:
+      - 127.0.0.1:8088:8080
+
+
+volumes:
+  db:
+    driver: local

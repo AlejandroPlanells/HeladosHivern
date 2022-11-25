@@ -1,0 +1,53 @@
+STR_LONGITUD_LARGA = 300
+STR_LONGITUD_CORTA = 150
+
+/** Entidad Fabricante. */
+entity Fabricante {
+  /** nombre */
+  nombre String required maxlength(STR_LONGITUD_LARGA)
+  /** domicilio */
+  domicilio String required maxlength(STR_LONGITUD_LARGA)
+}
+
+
+/** Entidad Helado. */
+entity Helado {
+  /** nombre */
+  nombre String required maxlength(STR_LONGITUD_LARGA)
+  /** oferta */
+  enOferta Boolean required
+  /** precio oferta */
+  precioOferta Double
+  /** precio */
+  precio Double required
+  /** fechaCreacion */
+  fechaCreacion Instant required
+}
+
+/** Entidad Ingrediente. */
+entity Ingrediente {
+  /** nombre */
+  nombre String required maxlength(STR_LONGITUD_LARGA)
+  /** descripcion */
+  descripcion String required maxlength(STR_LONGITUD_LARGA)
+  /** gramos */
+  gr Float required
+  /** calorias */
+  cal String required maxlength(STR_LONGITUD_CORTA)
+  
+}
+
+/** RELACIONES */
+relationship ManyToMany {
+  Helado{ingredientes} to Ingrediente{helados}
+}
+
+relationship ManyToOne {
+    Helado{fabricante required} to Fabricante
+}
+
+paginate all with pagination
+// Set service options to all except few
+service all with serviceImpl
+filter *
+dto all with mapstruct

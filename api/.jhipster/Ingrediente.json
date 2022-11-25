@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20221123082423",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "ingrediente",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "300",
+      "javadoc": "nombre"
+    },
+    {
+      "fieldName": "descripcion",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "300",
+      "javadoc": "descripcion"
+    },
+    {
+      "fieldName": "gr",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"],
+      "javadoc": "gramos"
+    },
+    {
+      "fieldName": "cal",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "150",
+      "javadoc": "calorias"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Entidad Ingrediente.",
+  "jpaMetamodelFiltering": true,
+  "name": "Ingrediente",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "helado",
+      "otherEntityRelationshipName": "ingredientes",
+      "ownerSide": false,
+      "relationshipName": "helados",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

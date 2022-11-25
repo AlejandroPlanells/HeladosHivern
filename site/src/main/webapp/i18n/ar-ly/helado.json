@@ -1,0 +1,37 @@
+{
+  "jHipsterGApp": {
+    "helado": {
+      "home": {
+        "title": "Helados",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Helado",
+        "createOrEditLabel": "Create or edit a Helado",
+        "notFound": "No Helados found"
+      },
+      "created": "A new Helado is created with identifier {{ param }}",
+      "updated": "A Helado is updated with identifier {{ param }}",
+      "deleted": "A Helado is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Helado {{ id }}?"
+      },
+      "detail": {
+        "title": "Helado"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "enOferta": "En Oferta",
+      "precioOferta": "Precio Oferta",
+      "precio": "Precio",
+      "fechaCreacion": "Fecha Creacion",
+      "fabricante": "Fabricante",
+      "ingredientes": "Ingredientes",
+      "help": {
+        "nombre": "nombre",
+        "enOferta": "oferta",
+        "precioOferta": "precio oferta",
+        "precio": "precio",
+        "fechaCreacion": "fechaCreacion"
+      }
+    }
+  }
+}

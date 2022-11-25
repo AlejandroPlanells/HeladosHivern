@@ -1,0 +1,34 @@
+{
+  "jHipsterGApp": {
+    "ingrediente": {
+      "home": {
+        "title": "Ingredientes",
+        "refreshListLabel": "Обновить список",
+        "createLabel": "Создать новый Ingrediente",
+        "createOrEditLabel": "Создать или отредактировать Ingrediente",
+        "notFound": "Ingredientes не найдено"
+      },
+      "created": "Новый Ingrediente создан с идентификатором {{ param }}",
+      "updated": "Ingrediente обновлен с идентификатором {{ param }}",
+      "deleted": "Ingrediente удален с идентификатором {{ param }}",
+      "delete": {
+        "question": "Вы уверены что хотите удалить Ingrediente {{ id }}?"
+      },
+      "detail": {
+        "title": "Ingrediente"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "descripcion": "Descripcion",
+      "gr": "Gr",
+      "cal": "Cal",
+      "helados": "Helados",
+      "help": {
+        "nombre": "nombre",
+        "descripcion": "descripcion",
+        "gr": "gramos",
+        "cal": "calorias"
+      }
+    }
+  }
+}

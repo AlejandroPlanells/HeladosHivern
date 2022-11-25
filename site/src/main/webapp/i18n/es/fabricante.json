@@ -1,0 +1,29 @@
+{
+  "jHipsterGApp": {
+    "fabricante": {
+      "home": {
+        "title": "Fabricantes",
+        "refreshListLabel": "Refrescar lista",
+        "createLabel": "Crear nuevo Fabricante",
+        "createOrEditLabel": "Crear o editar Fabricante",
+        "notFound": "Ningún Fabricantes encontrado"
+      },
+      "created": "Un nuevo Fabricante ha sido creado con el identificador {{ param }}",
+      "updated": "Un Fabricante ha sido actualizado con el identificador {{ param }}",
+      "deleted": "Un Fabricante ha sido eliminado con el identificador {{ param }}",
+      "delete": {
+        "question": "¿Seguro que quiere eliminar Fabricante {{ id }}?"
+      },
+      "detail": {
+        "title": "Fabricante"
+      },
+      "id": "ID",
+      "nombre": "Nombre",
+      "domicilio": "Domicilio",
+      "help": {
+        "nombre": "nombre",
+        "domicilio": "domicilio"
+      }
+    }
+  }
+}

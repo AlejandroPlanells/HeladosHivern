@@ -1,0 +1,11 @@
+id;nombre;en_oferta;precio_oferta;precio;fecha_creacion;fabricante_id
+1;Avon;false;70039;53530;2022-11-23T03:25:54;1
+2;Yuan Ingeniero;true;39591;97434;2022-11-22T12:05:10;2
+3;Avon;true;83796;51816;2022-11-22T11:55:49;3
+4;colaboración Vía;true;47637;53494;2022-11-22T17:21:26;4
+5;Checking New fuerza;true;13495;24030;2022-11-23T07:11:41;5
+6;Extremadura;false;55976;68725;2022-11-22T16:43:02;6
+7;neural;true;54034;62659;2022-11-23T01:48:26;7
+8;Account invoice;false;41087;87256;2022-11-22T21:53:23;8
+9;Bricolaje;false;48779;26443;2022-11-23T00:46:21;9
+10;connecting Hormigon;false;43235;30671;2022-11-22T08:47:28;10

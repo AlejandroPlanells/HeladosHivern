@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity Helado.
+    -->
+    <changeSet id="20221123082422-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="fabricante_id"
+                                 baseTableName="helado"
+                                 constraintName="fk_helado__fabricante_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="fabricante"/>
+
+        <addForeignKeyConstraint baseColumnNames="helado_id"
+                                 baseTableName="rel_helado__ingredientes"
+                                 constraintName="fk_rel_helado__ingredientes__helado_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="helado"/>
+
+        <addForeignKeyConstraint baseColumnNames="ingredientes_id"
+                                 baseTableName="rel_helado__ingredientes"
+                                 constraintName="fk_rel_helado__ingredientes__ingredientes_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="ingrediente"/>
+    </changeSet>
+</databaseChangeLog>

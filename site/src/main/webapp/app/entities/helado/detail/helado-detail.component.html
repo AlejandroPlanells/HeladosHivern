@@ -1,0 +1,71 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="helado">
+      <h2 data-cy="heladoDetailsHeading"><span jhiTranslate="jHipsterGApp.helado.detail.title">Helado</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ helado.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="jHipsterGApp.helado.nombre" [ngbTooltip]="'jHipsterGApp.helado.help.nombre' | translate">Nombre</span></dt>
+        <dd>
+          <span>{{ helado.nombre }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="jHipsterGApp.helado.enOferta" [ngbTooltip]="'jHipsterGApp.helado.help.enOferta' | translate">En Oferta</span>
+        </dt>
+        <dd>
+          <span>{{ helado.enOferta }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="jHipsterGApp.helado.precioOferta" [ngbTooltip]="'jHipsterGApp.helado.help.precioOferta' | translate"
+            >Precio Oferta</span
+          >
+        </dt>
+        <dd>
+          <span>{{ helado.precioOferta }}</span>
+        </dd>
+        <dt><span jhiTranslate="jHipsterGApp.helado.precio" [ngbTooltip]="'jHipsterGApp.helado.help.precio' | translate">Precio</span></dt>
+        <dd>
+          <span>{{ helado.precio }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="jHipsterGApp.helado.fechaCreacion" [ngbTooltip]="'jHipsterGApp.helado.help.fechaCreacion' | translate"
+            >Fecha Creacion</span
+          >
+        </dt>
+        <dd>
+          <span>{{ helado.fechaCreacion | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="jHipsterGApp.helado.fabricante">Fabricante</span></dt>
+        <dd>
+          <div *ngIf="helado.fabricante">
+            <a [routerLink]="['/fabricante', helado.fabricante.id, 'view']">{{ helado.fabricante.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="jHipsterGApp.helado.ingredientes">Ingredientes</span></dt>
+        <dd>
+          <span *ngFor="let ingredientes of helado.ingredientes; let last = last">
+            <a [routerLink]="['/ingrediente', ingredientes.id, 'view']">{{ ingredientes.id }}</a
+            >{{ last ? '' : ', ' }}
+          </span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/helado', helado.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

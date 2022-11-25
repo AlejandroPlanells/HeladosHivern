@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="ingrediente">
+      <h2 data-cy="ingredienteDetailsHeading"><span jhiTranslate="jHipsterGApp.ingrediente.detail.title">Ingrediente</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ ingrediente.id }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="jHipsterGApp.ingrediente.nombre" [ngbTooltip]="'jHipsterGApp.ingrediente.help.nombre' | translate"
+            >Nombre</span
+          >
+        </dt>
+        <dd>
+          <span>{{ ingrediente.nombre }}</span>
+        </dd>
+        <dt>
+          <span jhiTranslate="jHipsterGApp.ingrediente.descripcion" [ngbTooltip]="'jHipsterGApp.ingrediente.help.descripcion' | translate"
+            >Descripcion</span
+          >
+        </dt>
+        <dd>
+          <span>{{ ingrediente.descripcion }}</span>
+        </dd>
+        <dt><span jhiTranslate="jHipsterGApp.ingrediente.gr" [ngbTooltip]="'jHipsterGApp.ingrediente.help.gr' | translate">Gr</span></dt>
+        <dd>
+          <span>{{ ingrediente.gr }}</span>
+        </dd>
+        <dt><span jhiTranslate="jHipsterGApp.ingrediente.cal" [ngbTooltip]="'jHipsterGApp.ingrediente.help.cal' | translate">Cal</span></dt>
+        <dd>
+          <span>{{ ingrediente.cal }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Volver</span>
+      </button>
+
+      <button type="button" [routerLink]="['/ingrediente', ingrediente.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+      </button>
+    </div>
+  </div>
+</div>

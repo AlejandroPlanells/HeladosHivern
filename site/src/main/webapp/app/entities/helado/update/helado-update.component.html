@@ -1,0 +1,201 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-helado-heading" data-cy="HeladoCreateUpdateHeading" jhiTranslate="jHipsterGApp.helado.home.createOrEditLabel">
+        Crear o editar Helado
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" *ngIf="editForm.controls.id.value !== null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="jHipsterGApp.helado.nombre"
+            for="field_nombre"
+            [ngbTooltip]="'jHipsterGApp.helado.help.nombre' | translate"
+            >Nombre</label
+          >
+          <input type="text" class="form-control" name="nombre" id="field_nombre" data-cy="nombre" formControlName="nombre" />
+          <div *ngIf="editForm.get('nombre')!.invalid && (editForm.get('nombre')!.dirty || editForm.get('nombre')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('nombre')?.errors?.required" jhiTranslate="entity.validation.required">
+              Este campo es obligatorio.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nombre')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 300 }"
+            >
+              Este campo no puede superar más de 300 caracteres.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="jHipsterGApp.helado.enOferta"
+            for="field_enOferta"
+            [ngbTooltip]="'jHipsterGApp.helado.help.enOferta' | translate"
+            >En Oferta</label
+          >
+          <input type="checkbox" class="form-check" name="enOferta" id="field_enOferta" data-cy="enOferta" formControlName="enOferta" />
+          <div *ngIf="editForm.get('enOferta')!.invalid && (editForm.get('enOferta')!.dirty || editForm.get('enOferta')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('enOferta')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Este campo es obligatorio.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="jHipsterGApp.helado.precioOferta"
+            for="field_precioOferta"
+            [ngbTooltip]="'jHipsterGApp.helado.help.precioOferta' | translate"
+            >Precio Oferta</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="precioOferta"
+            id="field_precioOferta"
+            data-cy="precioOferta"
+            formControlName="precioOferta"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="jHipsterGApp.helado.precio"
+            for="field_precio"
+            [ngbTooltip]="'jHipsterGApp.helado.help.precio' | translate"
+            >Precio</label
+          >
+          <input type="number" class="form-control" name="precio" id="field_precio" data-cy="precio" formControlName="precio" />
+          <div *ngIf="editForm.get('precio')!.invalid && (editForm.get('precio')!.dirty || editForm.get('precio')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('precio')?.errors?.required" jhiTranslate="entity.validation.required">
+              Este campo es obligatorio.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('precio')?.errors?.number" jhiTranslate="entity.validation.number">
+              Este campo debe ser un número.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label
+            class="form-label"
+            jhiTranslate="jHipsterGApp.helado.fechaCreacion"
+            for="field_fechaCreacion"
+            [ngbTooltip]="'jHipsterGApp.helado.help.fechaCreacion' | translate"
+            >Fecha Creacion</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_fechaCreacion"
+              data-cy="fechaCreacion"
+              type="datetime-local"
+              class="form-control"
+              name="fechaCreacion"
+              formControlName="fechaCreacion"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('fechaCreacion')!.invalid && (editForm.get('fechaCreacion')!.dirty || editForm.get('fechaCreacion')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('fechaCreacion')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              Este campo es obligatorio.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('fechaCreacion')?.errors?.datetimelocal"
+              jhiTranslate="entity.validation.datetimelocal"
+            >
+              Este campo debe ser una fecha y hora.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="jHipsterGApp.helado.fabricante" for="field_fabricante">Fabricante</label>
+          <select
+            class="form-control"
+            id="field_fabricante"
+            data-cy="fabricante"
+            name="fabricante"
+            formControlName="fabricante"
+            [compareWith]="compareFabricante"
+          >
+            <option *ngIf="!editForm.get('fabricante')!.value" [ngValue]="null" selected></option>
+            <option [ngValue]="fabricanteOption" *ngFor="let fabricanteOption of fabricantesSharedCollection">
+              {{ fabricanteOption.id }}
+            </option>
+          </select>
+        </div>
+        <div
+          *ngIf="editForm.get(['fabricante'])!.invalid && (editForm.get(['fabricante'])!.dirty || editForm.get(['fabricante'])!.touched)"
+        >
+          <small
+            class="form-text text-danger"
+            *ngIf="editForm.get(['fabricante'])?.errors?.required"
+            jhiTranslate="entity.validation.required"
+          >
+            Este campo es obligatorio.
+          </small>
+        </div>
+
+        <div class="row mb-3">
+          <label jhiTranslate="jHipsterGApp.helado.ingredientes" for="field_ingredientes">Ingredientes</label>
+          <select
+            class="form-control"
+            id="field_ingredientes"
+            data-cy="ingredientes"
+            multiple
+            name="ingredientes"
+            formControlName="ingredientes"
+            [compareWith]="compareIngrediente"
+          >
+            <option [ngValue]="ingredienteOption" *ngFor="let ingredienteOption of ingredientesSharedCollection">
+              {{ ingredienteOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Guardar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

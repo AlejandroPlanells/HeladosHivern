@@ -1,0 +1,31 @@
+{
+  "applications": "*",
+  "changelogDate": "20221123082450",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "fabricante",
+  "fields": [
+    {
+      "fieldName": "nombre",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "300",
+      "javadoc": "nombre"
+    },
+    {
+      "fieldName": "domicilio",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "maxlength"],
+      "fieldValidateRulesMaxlength": "300",
+      "javadoc": "domicilio"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "Entidad Fabricante.",
+  "jpaMetamodelFiltering": true,
+  "name": "Fabricante",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [],
+  "service": "serviceImpl"
+}
