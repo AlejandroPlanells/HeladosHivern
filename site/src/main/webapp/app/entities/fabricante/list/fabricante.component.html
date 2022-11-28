@@ -8,6 +8,11 @@
         <span jhiTranslate="jHipsterGApp.fabricante.home.refreshListLabel">Refrescar lista</span> :D
       </button>
 
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="jHipsterGApp.fabricante.home.refreshListLabel">Refrescar lista</span>
+      </button>
+
       <button
         id="jh-create-entity"
         data-cy="entityCreateButton"
